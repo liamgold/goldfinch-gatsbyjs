@@ -1,6 +1,10 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`
+});
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby starter site with Kentico Cloud`,
+    title: `Liam Goldfinch | .NET Developer`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -8,13 +12,9 @@ module.exports = {
       resolve: `gatsby-source-kentico-cloud`,
       options: {
         deliveryClientConfig: {
-          projectId: `5ac93d1e-567d-01e6-e3b7-ac435f77b907`,
+          projectId: process.env.API_KEY
         },
-        languageCodenames: [
-          `default`,
-          `de-DE`,
-          `cs-CZ`,
-        ]
+        languageCodenames: [`default`]
       }
     }
   ]

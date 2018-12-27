@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-kentico-cloud",
-  "description": "Gatsby starter site with Kentico Cloud",
+  "name": "liamgold.github.io",
+  "description": "Gatsby site with Kentico Cloud",
   "version": "1.0.0",
-  "author": "Jan Lenoch <janl@kentico.com>",
+  "author": "Liam Goldfinch",
   "dependencies": {
     "gatsby": "^2.0.22",
     "gatsby-plugin-react-helmet": "^3.0.0",
