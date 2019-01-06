@@ -1,8 +1,8 @@
-import React, { Fragment } from "react";
-import PropTypes from "prop-types";
-import Helmet from "react-helmet";
-import { StaticQuery, graphql } from "gatsby";
-import Header from "../components/header";
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
+import { StaticQuery, graphql } from 'gatsby';
+import Header from '../components/header';
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -22,25 +22,28 @@ const Layout = ({ children }) => (
           meta={[
             {
               name: `author`,
-              content: `Liam Goldfinch`
+              content: `Liam Goldfinch`,
             },
             {
               name: `description`,
-              content: `.NET Developer, based in Leeds, England.`
-            }
+              content: `.NET Developer, based in Leeds, England.`,
+            },
           ]}
         >
           <html lang="en" />
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
-        <div>{children}</div>
+        <main>{children}</main>
+        <footer>
+          <p>Liam Goldfinch</p>
+        </footer>
       </Fragment>
     )}
   />
 );
 
 Layout.propTypes = {
-  children: PropTypes.object
+  children: PropTypes.object,
 };
 
 export default Layout;
