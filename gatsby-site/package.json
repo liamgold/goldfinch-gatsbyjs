@@ -6,20 +6,12 @@
   "dependencies": {
     "gatsby": "^2.0.22",
     "gatsby-plugin-react-helmet": "^3.0.0",
+    "gatsby-plugin-react-svg": "^2.0.0",
     "gatsby-source-kentico-cloud": "^2.1.0",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0"
   },
-  "keywords": [
-    "gatsby",
-    "Gatsby",
-    "kentico-cloud",
-    "Kentico Cloud",
-    "starter",
-    "Starter"
-  ],
-  "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -33,12 +25,9 @@
     "eslint-config-google": "^0.10.0",
     "eslint-plugin-node": "^7.0.1",
     "eslint-plugin-react": "^7.11.1",
+    "gatsby-plugin-root-import": "^2.0.4",
     "gh-pages": "^2.0.1",
     "jest": "^23.6.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Kentico/gatsby-starter-kentico-cloud"
   },
   "jest": {
     "testEnvironment": "node",
