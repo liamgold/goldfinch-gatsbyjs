@@ -11,7 +11,8 @@
   "extends": ["eslint:recommended", "plugin:react/recommended"],
   "rules": {
     "linebreak-style": 0,
-    "semi": 2
+    "semi": 2,
+    "array-bracket-newline": ["error", { "multiline": true, "minItems": 2 }]
   },
   "parserOptions": {
     "sourceType": "module",

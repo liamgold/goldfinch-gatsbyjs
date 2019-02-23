@@ -1,21 +1,19 @@
-const path = require("path");
+const path = require('path');
 
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
 });
 
 module.exports = {
-  siteMetadata: {
-    title: `Liam Goldfinch | .NET Developer`
-  },
   plugins: [
+    `gatsby-plugin-react-helmet`,
     {
-      resolve: "gatsby-plugin-root-import",
+      resolve: 'gatsby-plugin-root-import',
       options: {
-        assets: path.join(__dirname, "src/assets"),
-        src: path.join(__dirname, "src"),
-        pages: path.join(__dirname, "src/pages")
-      }
+        assets: path.join(__dirname, 'src/assets'),
+        src: path.join(__dirname, 'src'),
+        pages: path.join(__dirname, 'src/pages'),
+      },
     },
     {
       resolve: `gatsby-plugin-emotion`,
@@ -29,23 +27,31 @@ module.exports = {
         pathToConfigModule: `src/utils/typography.js`,
       },
     },
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-kentico-cloud`,
       options: {
         deliveryClientConfig: {
-          projectId: process.env.API_KEY
+          projectId: process.env.API_KEY,
         },
-        languageCodenames: [`default`]
-      }
+        languageCodenames: [`default`],
+      },
     },
     {
-      resolve: "gatsby-plugin-react-svg",
+      resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
-          include: /assets/
-        }
-      }
-    }
-  ]
+          include: /assets/,
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-100971234-1',
+        head: true,
+        anonymize: true,
+        respectDNT: true,
+      },
+    },
+  ],
 };

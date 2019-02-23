@@ -3,28 +3,26 @@
   "description": "Gatsby site with Kentico Cloud",
   "version": "1.0.0",
   "author": "Liam Goldfinch",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "deploy": "gatsby build && gh-pages -d public -b master"
+  },
   "dependencies": {
     "@emotion/core": "^10.0.5",
     "@emotion/styled": "^10.0.5",
     "gatsby": "^2.0.85",
     "gatsby-plugin-emotion": "^4.0.1",
-    "gatsby-plugin-react-helmet": "^3.0.0",
+    "gatsby-plugin-google-analytics": "^2.0.14",
+    "gatsby-plugin-react-helmet": "^3.0.6",
     "gatsby-plugin-react-svg": "^2.0.0",
     "gatsby-plugin-typography": "^2.2.5",
-    "gatsby-source-kentico-cloud": "^2.1.0",
+    "gatsby-source-kentico-cloud": "^3.0.0",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.18",
     "typography": "^0.16.18"
-  },
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "test": "jest",
-    "lint": "eslint src",
-    "lint:fix": "eslint src --fix",
-    "deploy": "gatsby build && gh-pages -d public -b master"
   },
   "devDependencies": {
     "eslint": "^5.7.0",
@@ -32,13 +30,6 @@
     "eslint-plugin-node": "^7.0.1",
     "eslint-plugin-react": "^7.11.1",
     "gatsby-plugin-root-import": "^2.0.4",
-    "gh-pages": "^2.0.1",
-    "jest": "^23.6.0"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "testPathIgnorePatterns": [
-      ".cache/"
-    ]
+    "gh-pages": "^2.0.1"
   }
 }

@@ -1,38 +1,47 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 
-const Index = ({data}) => {
-  const union = new Array(...data.allKenticoCloudItemBlogpostReference.edges, ...data.allKenticoCloudItemProjectReference.edges, ...data.allKenticoCloudItemSpeakingEngagement.edges);
-  const items = union.map(({node}) => {
-    if (node.fields !== undefined && node.fields !== null && node.fields.templateName !== undefined && node.fields.templateName !== null) {
-      const name = node.fields.templateName === `project-reference` ? node.elements.name___teaser_image__name.value : node.elements.name.value;
+const Index = ({ data }) => {
+  const node = data.allKenticoCloudItemHome.edges[0].node;
+  const {
+    seo__meta_title,
+    seo__meta_description,
+    seo__meta_keywords,
+    base__title,
+    body_copy,
+  } = node.elements;
 
-      return (
-        <li key={node.id}>
-          <Link to={`../${node.fields.templateName}/${node.fields.slug}`}>
-            {name}
-          </Link>
-        </li>
-      );
-    } else {
-      return (
-        <li key={node.id}>
-          <a href={node.elements.url.value}>
-            {node.elements.name___teaser_image__name.value}
-          </a>
-        </li>
-      );
-    }
-  });
-
+  const title = !seo__meta_title.text ? `Liam Goldfinch | .NET Developer` : seo__meta_title.text;
   return (
-    <Layout>
-      <div>
-        {items}
-      </div>
-    </Layout>
+    <Fragment>
+      <Helmet
+        title={title}
+        meta={[
+          { name: 'description', content: `${seo__meta_description.text}` },
+          { name: 'keywords', content: `${seo__meta_keywords.text}` },
+          // { property: 'og:title', content: ogtitle },
+          // { property: 'og:type', content: 'website' },
+          // { property: 'og:url', content: siteurl },
+          // { property: 'og:image', content: `${siteurl}${ogImage}` },
+          // { property: 'og:description', content: description },
+          // { property: 'og:image:width', content: '1200' },
+          // { property: 'og:image:height', content: '630' },
+          // { name: 'twitter:card', content: 'summary_large_image' },
+          // { name: 'twitter:title', content: ogtitle },
+          // { name: 'twitter:description', content: description },
+          // { name: 'twitter:image', content: `${siteurl}${ogImage}` },
+        ]}
+      />
+      <Layout>
+        <div>
+          <h1>{base__title.text}</h1>
+          <div dangerouslySetInnerHTML={{ __html: body_copy.resolvedHtml }} />
+        </div>
+      </Layout>
+    </Fragment>
   );
 };
 
@@ -40,55 +49,26 @@ export default Index;
 
 export const query = graphql`
   {
-    allKenticoCloudItemBlogpostReference(filter: { fields: { language: { eq: "default" }}}) {
+    allKenticoCloudItemHome {
       edges {
         node {
-          fields {
-            language
-          }
-          id
           elements {
-            url {
-              value
+            base__title {
+              text
             }
-            name___teaser_image__name {
-              value
+            seo__meta_title {
+              text
             }
-          }
-        }
-      }
-    }
-    allKenticoCloudItemProjectReference(filter: { fields: { language: { eq: "default" }}}) {
-      edges {
-        node {
-          fields {
-            templateName
-            slug
-            language
-          }
-          id
-          elements {
-            url {
-              value
+            seo__meta_description {
+              text
             }
-            name___teaser_image__name {
-              value
+            seo__meta_keywords {
+              text
             }
-          }
-        }
-      }
-    }
-    allKenticoCloudItemSpeakingEngagement(filter: { fields: { language: { eq: "default" }}}) {
-      edges {
-        node {
-          fields {
-            templateName
-            slug
-            language
-          }
-          id
-          elements {
-            name {
+            body_copy {
+              resolvedHtml
+            }
+            url_pattern {
               value
             }
           }
@@ -101,3 +81,14 @@ export const query = graphql`
 Index.propTypes = {
   data: PropTypes.object,
 };
+
+// Index.propTypes = {
+//   data: PropTypes.shape({
+//     base__title: PropTypes.string,
+//     footer_left_column: PropTypes.object,
+//     footer_center_column: PropTypes.object,
+//     footer_right_column: PropTypes.object,
+//     footer_bottom_text: PropTypes.object,
+//     backgrounds: PropTypes.array,
+//   }),
+// };
