@@ -8,6 +8,10 @@ const Layout = ({ children }) => (
     <Helmet
       meta={[
         {
+          name: `theme-color`,
+          content: `#212121`,
+        },
+        {
           name: `author`,
           content: `Liam Goldfinch`,
         },
