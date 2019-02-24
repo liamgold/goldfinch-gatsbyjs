@@ -11,8 +11,10 @@ module.exports = {
       resolve: 'gatsby-plugin-root-import',
       options: {
         assets: path.join(__dirname, 'src/assets'),
+        components: path.join(__dirname, 'src/components'),
         src: path.join(__dirname, 'src'),
         pages: path.join(__dirname, 'src/pages'),
+        utils: path.join(__dirname, 'src/utils'),
       },
     },
     {
@@ -67,5 +69,8 @@ module.exports = {
         // icon: 'src/images/icon.png', // This path is relative to the root of the site.
       },
     },
+    // If you’re using this plugin with gatsby-plugin-manifest (recommended) this plugin should be listed
+    // after that plugin so the manifest file can be included in the service worker.
+    `gatsby-plugin-offline`,
   ],
 };

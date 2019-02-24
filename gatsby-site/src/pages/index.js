@@ -22,17 +22,6 @@ const Index = ({ data }) => {
         meta={[
           { name: 'description', content: `${seo__meta_description.text}` },
           { name: 'keywords', content: `${seo__meta_keywords.text}` },
-          // { property: 'og:title', content: ogtitle },
-          // { property: 'og:type', content: 'website' },
-          // { property: 'og:url', content: siteurl },
-          // { property: 'og:image', content: `${siteurl}${ogImage}` },
-          // { property: 'og:description', content: description },
-          // { property: 'og:image:width', content: '1200' },
-          // { property: 'og:image:height', content: '630' },
-          // { name: 'twitter:card', content: 'summary_large_image' },
-          // { name: 'twitter:title', content: ogtitle },
-          // { name: 'twitter:description', content: description },
-          // { name: 'twitter:image', content: `${siteurl}${ogImage}` },
         ]}
       />
       <Layout>
@@ -81,14 +70,3 @@ export const query = graphql`
 Index.propTypes = {
   data: PropTypes.object,
 };
-
-// Index.propTypes = {
-//   data: PropTypes.shape({
-//     base__title: PropTypes.string,
-//     footer_left_column: PropTypes.object,
-//     footer_center_column: PropTypes.object,
-//     footer_right_column: PropTypes.object,
-//     footer_bottom_text: PropTypes.object,
-//     backgrounds: PropTypes.array,
-//   }),
-// };

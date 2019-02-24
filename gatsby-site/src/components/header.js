@@ -25,15 +25,6 @@ const Header = () => (
         `}
       />
     </Link>
-    {/* <nav className="navigation" role="navigation">
-      <ul>
-        <li>
-          <a className="logo-link" href="/">
-            Home
-          </a>
-        </li>
-      </ul>
-    </nav> */}
   </header>
 );
 

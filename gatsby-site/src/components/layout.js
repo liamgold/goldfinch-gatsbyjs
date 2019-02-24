@@ -1,10 +1,18 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { Global } from '@emotion/core';
+import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import Header from '../components/header';
+import Header from 'components/header';
+import GlobalStyles from 'utils/globalStyles';
+
+const Wrapper = styled('div')`
+  padding: 10px;
+`;
 
 const Layout = ({ children }) => (
-  <Fragment>
+  <Wrapper>
+    <Global styles={GlobalStyles} />
     <Helmet
       meta={[
         {
@@ -28,7 +36,7 @@ const Layout = ({ children }) => (
     <footer>
       <p>Liam Goldfinch</p>
     </footer>
-  </Fragment>
+  </Wrapper>
 );
 
 Layout.propTypes = {
