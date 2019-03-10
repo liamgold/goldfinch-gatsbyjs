@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
-import Layout from '../components/layout';
+import Layout from 'components/Layout';
 
 const Index = ({ data }) => {
   const node = data.allKenticoCloudItemHome.edges[0].node;

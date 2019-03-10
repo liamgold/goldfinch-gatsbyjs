@@ -2,32 +2,28 @@ import { css } from '@emotion/core';
 
 export default css`
   body {
-    background: #efefef;
+    background: #ffffff;
   }
-  .main {
-    flex: 1;
-    margin: 2em;
-
-    a {
-      background: #efefef;
-      color: #222;
-      border-bottom: 1px solid #222;
-      text-decoration: none;
-      transition: background 0.25s ease, color 0.25s ease;
-
-      &:hover {
-        background: #222;
-        color: #efefef;
-      }
-    }
+  a {
+    position: relative;
+    color: #222;
+    text-decoration: none;
+    transition: background 0.25s ease, color 0.25s ease;
   }
-  .footer {
-    display: flex;
-    justify-content: flex-end;
-    border-top: 5px solid #222;
-
-    &__title {
-      font-weight: bold;
-    }
+  a:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #222;
+    transform-origin: bottom right;
+    transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  a:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
   }
 `;
