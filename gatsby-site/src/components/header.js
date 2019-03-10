@@ -16,7 +16,7 @@ const srOnly = css`
 `;
 
 const Header = () => (
-  <header>
+  <header className="header">
     <Link to="/" className="logo">
       <span css={srOnly}>Liam Goldfinch</span>
       <Logo

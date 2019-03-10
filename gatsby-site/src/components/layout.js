@@ -7,6 +7,9 @@ import Header from 'components/header';
 import GlobalStyles from 'utils/globalStyles';
 
 const Wrapper = styled('div')`
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
   padding: 10px;
 `;
 
@@ -32,9 +35,9 @@ const Layout = ({ children }) => (
       <html lang="en" />
     </Helmet>
     <Header />
-    <main>{children}</main>
-    <footer>
-      <p>Liam Goldfinch</p>
+    <main className="main">{children}</main>
+    <footer className="footer">
+      <span className="footer__title">Liam Goldfinch</span>
     </footer>
   </Wrapper>
 );
