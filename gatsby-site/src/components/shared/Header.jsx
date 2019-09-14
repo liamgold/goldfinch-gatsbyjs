@@ -1,20 +1,25 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import { Link } from 'gatsby';
-import Logo from 'assets/logo.svg';
+import logo from 'assets/liam.jpg';
 import SrOnly from './SrOnly';
-import { Container } from './Header.styles';
+import { Container, Heading } from './Header.styles';
 
 const Header = () => (
   <Container>
     <Link to="/">
       <SrOnly text="Liam Goldfinch" />
-      <Logo
+      <img
+        src={logo}
+        alt="Liam Goldfinch"
         css={css`
-          width: 200px;
+          width: 150px;
+          border-radius: 6px;
+          margin-bottom: 0;
         `}
       />
     </Link>
+    <Heading>Liam Goldfinch</Heading>
   </Container>
 );
 

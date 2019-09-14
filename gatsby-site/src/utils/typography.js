@@ -1,8 +1,7 @@
 import Typography from 'typography';
 
 const typography = new Typography({
-  baseFontSize: '18px',
-  baseLineHeight: 1.666,
+  bodyFontFamily: ['Open Sans', 'sans-serif'],
   googleFonts: [
     {
       name: 'Roboto',
@@ -14,7 +13,7 @@ const typography = new Typography({
     },
   ],
   headerFontFamily: ['Roboto', 'Arial', 'sans-serif'],
-  bodyFontFamily: ['Open Sans', 'sans-serif'],
+  scaleRatio: 1.4,
 });
 
 export default typography;
