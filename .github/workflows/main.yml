@@ -1,0 +1,33 @@
+name: GitHub Pages CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.x]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}    
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}        
+    - name: yarn, build
+      run: |
+        yarn
+        yarn run build
+      env:
+        API_KEY: ${{ secrets.API_KEY }}
+        CI: true
+    - name: Release Github Pages
+      uses: igolopolosov/github-action-release-github-pages@master
+      env:
+        GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+        GITHUB_PAGES_REPO_AUTHOR: liamgold
+        GITHUB_PAGES_REPO_NAME: liamgold.github.io
+        GITHUB_PAGES_RELEASE_BRANCH: master
+        PROJECT_BUILD_FOLDER: public
+        GITHUB_PAGES_CLEANUP_SCRIPT: "rm -rf *"
