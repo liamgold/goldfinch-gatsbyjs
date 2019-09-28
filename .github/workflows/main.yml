@@ -15,10 +15,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}        
-    - name: yarn, build
+    - name: npm install, build
       run: |
-        yarn
-        yarn run build
+        npm install
+        npm run build
       env:
         API_KEY: ${{ secrets.API_KEY }}
         CI: true
