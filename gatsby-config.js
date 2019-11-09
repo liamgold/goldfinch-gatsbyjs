@@ -30,7 +30,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-kentico-cloud`,
+      resolve: `@kentico/gatsby-source-kontent`,
       options: {
         deliveryClientConfig: {
           projectId: process.env.API_KEY,
