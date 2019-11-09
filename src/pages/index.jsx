@@ -5,7 +5,7 @@ import { graphql } from 'gatsby';
 import Layout from 'components/Layout';
 
 const Index = ({ data }) => {
-  const node = data.allKenticoCloudItemHome.edges[0].node;
+  const node = data.allKontentItemHome.edges[0].node;
   const {
     seo__meta_title,
     seo__meta_description,
@@ -14,20 +14,24 @@ const Index = ({ data }) => {
     body_copy,
   } = node.elements;
 
-  const title = !seo__meta_title.text ? `Liam Goldfinch | .NET Developer` : seo__meta_title.text;
+  const title = !seo__meta_title.value
+    ? `Liam Goldfinch | .NET Developer`
+    : seo__meta_title.value;
   return (
     <Fragment>
       <Helmet
         title={title}
         meta={[
-          { name: 'description', content: `${seo__meta_description.text}` },
-          { name: 'keywords', content: `${seo__meta_keywords.text}` },
+          { name: 'description', content: `${seo__meta_description.value}` },
+          { name: 'keywords', content: `${seo__meta_keywords.value}` },
         ]}
       />
       <Layout>
         <div>
-          <h1>{base__title.text}</h1>
-          <div dangerouslySetInnerHTML={{ __html: body_copy.resolvedHtml }} />
+          <h1>{base__title.value}</h1>
+          <div
+            dangerouslySetInnerHTML={{ __html: body_copy.resolvedData.html }}
+          />
         </div>
       </Layout>
     </Fragment>
@@ -38,24 +42,26 @@ export default Index;
 
 export const query = graphql`
   {
-    allKenticoCloudItemHome {
+    allKontentItemHome {
       edges {
         node {
           elements {
             base__title {
-              text
+              value
             }
             seo__meta_title {
-              text
+              value
             }
             seo__meta_description {
-              text
+              value
             }
             seo__meta_keywords {
-              text
+              value
             }
             body_copy {
-              resolvedHtml
+              resolvedData {
+                html
+              }
             }
             url_pattern {
               value
