@@ -25,7 +25,7 @@ jobs:
         API_KEY: ${{ secrets.API_KEY }}
         CI: true
     - name: Release Github Pages
-      uses: liamgold/github-action-release-github-pages
+      uses: liamgold/github-action-release-github-pages@master
       env:
         GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
         GITHUB_PAGES_REPO_AUTHOR: liamgold
