@@ -2,7 +2,7 @@ name: CI - Release (External trigger)
 
 on:
   repository_dispatch:
-    types: external_test
+    types: kentico_kontent_publish
 
 jobs:
   build:
