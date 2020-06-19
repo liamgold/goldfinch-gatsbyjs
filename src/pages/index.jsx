@@ -29,9 +29,7 @@ const Index = ({ data }) => {
       <Layout>
         <div>
           <h1>{base__title.value}</h1>
-          <div
-            dangerouslySetInnerHTML={{ __html: body_copy.resolvedData.html }}
-          />
+          <div dangerouslySetInnerHTML={{ __html: body_copy.value }} />
         </div>
       </Layout>
     </Fragment>
@@ -59,9 +57,7 @@ export const query = graphql`
               value
             }
             body_copy {
-              resolvedData {
-                html
-              }
+              value
             }
             url_pattern {
               value
