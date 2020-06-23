@@ -1,37 +1,32 @@
 import React, { Fragment } from 'react';
-import Helmet from 'react-helmet';
-import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
 import { graphql } from 'gatsby';
-import Layout from 'components/Layout';
 
-const Index = ({ data }) => {
+import Layout from '@components/Layout';
+import { Home } from '@models/home';
+
+interface IndexProps {
+  data: Home;
+}
+
+const Index: React.FC<IndexProps> = ({ data }) => {
   const node = data.allKontentItemHome.edges[0].node;
-  const {
-    seo__meta_title,
-    seo__meta_description,
-    seo__meta_keywords,
-    base__title,
-    body_copy,
-  } = node.elements;
+  const { seo__meta_title, seo__meta_description, seo__meta_keywords, base__title, body_copy } = node.elements;
 
-  const title = !seo__meta_title.value
-    ? `Liam Goldfinch | .NET Developer`
-    : seo__meta_title.value;
+  const title = !seo__meta_title.value ? 'Liam Goldfinch | .NET Developer' : seo__meta_title.value;
   return (
     <Fragment>
       <Helmet
         title={title}
         meta={[
-          { name: 'description', content: `${seo__meta_description.value}` },
-          { name: 'keywords', content: `${seo__meta_keywords.value}` },
+          { name: 'description', content: seo__meta_description.value },
+          { name: 'keywords', content: seo__meta_keywords.value },
         ]}
       />
       <Layout>
         <div>
           <h1>{base__title.value}</h1>
-          <div
-            dangerouslySetInnerHTML={{ __html: body_copy.resolvedData.html }}
-          />
+          <div dangerouslySetInnerHTML={{ __html: body_copy.value }} />
         </div>
       </Layout>
     </Fragment>
@@ -59,9 +54,7 @@ export const query = graphql`
               value
             }
             body_copy {
-              resolvedData {
-                html
-              }
+              value
             }
             url_pattern {
               value
@@ -72,7 +65,3 @@ export const query = graphql`
     }
   }
 `;
-
-Index.propTypes = {
-  data: PropTypes.object,
-};
