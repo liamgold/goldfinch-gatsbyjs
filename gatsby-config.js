@@ -6,34 +6,24 @@ require('dotenv').config({
 
 module.exports = {
   plugins: [
-    `gatsby-plugin-react-helmet`,
+    'gatsby-plugin-react-helmet',
     {
-      resolve: 'gatsby-plugin-root-import',
+      resolve: 'gatsby-plugin-typography',
       options: {
-        assets: path.join(__dirname, 'src/assets'),
-        components: path.join(__dirname, 'src/components'),
-        src: path.join(__dirname, 'src'),
-        pages: path.join(__dirname, 'src/pages'),
-        utils: path.join(__dirname, 'src/utils'),
+        pathToConfigModule: 'src/utils/typography.js',
       },
     },
     {
-      resolve: `gatsby-plugin-emotion`,
-      options: {
-        // Accepts all options defined by `babel-plugin-emotion` plugin.
-      },
-    },
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography.js`,
-      },
-    },
-    {
-      resolve: `@kentico/gatsby-source-kontent`,
+      resolve: '@kentico/gatsby-source-kontent',
       options: {
         projectId: process.env.API_KEY,
         languageCodenames: ['default'],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        displayName: false,
       },
     },
     {
@@ -46,7 +36,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'Liam Goldfinch - .NET Developer',
         short_name: 'Goldfinch',
@@ -61,6 +51,6 @@ module.exports = {
     },
     // If you’re using this plugin with gatsby-plugin-manifest (recommended) this plugin should be listed
     // after that plugin so the manifest file can be included in the service worker.
-    `gatsby-plugin-offline`,
+    'gatsby-plugin-offline',
   ],
 };
