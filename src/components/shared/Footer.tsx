@@ -1,8 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithubSquare } from '@fortawesome/free-brands-svg-icons';
 
+import { styled } from '@utils/theme';
 import SrOnly from './SrOnly';
 
 interface FooterProps {
@@ -26,7 +26,7 @@ const Footer = styled(Container)`
   width: 100%;
   max-width: 640px;
   padding: 20px;
-  border-top: 5px solid #222;
+  border-top: 5px solid ${props => props.theme.colour.grey};
 `;
 
 export default Footer;
