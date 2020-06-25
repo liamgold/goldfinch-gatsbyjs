@@ -15,7 +15,8 @@
     "paths": {
       "@assets/*": ["assets/*"],
       "@components/*": ["components/*"],
-      "@models/*": ["models/*"]
+      "@models/*": ["models/*"],
+      "@utils/*": ["utils/*"],
     },
     "skipLibCheck": true,
     "strict": true,

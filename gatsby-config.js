@@ -42,7 +42,7 @@ module.exports = {
         short_name: 'Goldfinch',
         start_url: '/',
         background_color: '#FFFFFF',
-        theme_color: '#212121',
+        theme_color: '#444444',
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
         display: 'standalone',
