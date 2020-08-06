@@ -7,29 +7,20 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise(resolve => {
     graphql(`
       {
-        allKontentItemArticle {
+        allKontentItemBlogDetail {
           edges {
             node {
               elements {
                 url_slug {
                   value
                 }
-                base__title {
-                  value
-                }
-                body_copy {
-                  value
-                }
-              }
-              system {
-                id
               }
             }
           }
         }
       }
     `).then(result => {
-      const { edges } = result.data.allKontentItemArticle;
+      const { edges } = result.data.allKontentItemBlogDetail;
 
       edges.forEach(edge => {
         createPage({

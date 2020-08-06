@@ -2,18 +2,18 @@ import React, { FunctionComponent } from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '@components/Layout';
-import { Article } from '@models/Article';
+import { BlogDetail } from '@models/BlogDetail';
 
 interface BlogPostProps {
   data: BlogPostResult;
 }
 
 interface BlogPostResult {
-  kontentItemArticle: Article;
+  kontentItemBlogDetail: BlogDetail;
 }
 
 const BlogPost: FunctionComponent<BlogPostProps> = ({ data }) => {
-  const item = data.kontentItemArticle;
+  const item = data.kontentItemBlogDetail;
 
   if (!item) {
     return null;
@@ -37,7 +37,7 @@ export default BlogPost;
 
 export const query = graphql`
   query BlogPostQuery($slug: String!) {
-    kontentItemArticle(elements: { url_slug: { value: { eq: $slug } } }) {
+    kontentItemBlogDetail(elements: { url_slug: { value: { eq: $slug } } }) {
       elements {
         url_slug {
           value
