@@ -39,18 +39,12 @@ export const query = graphql`
   query HomeQuery {
     kontentItemHome {
       elements {
-        url_slug {
-          value
-        }
         base__title {
           value
         }
         body_copy {
           value
         }
-      }
-      system {
-        id
       }
     }
   }

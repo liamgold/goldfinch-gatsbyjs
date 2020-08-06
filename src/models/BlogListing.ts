@@ -6,10 +6,8 @@ interface Elements {
   seo__meta_title: Elements.TextElement | undefined;
   seo__meta_keywords: Elements.TextElement | undefined;
   seo__meta_description: Elements.TextElement | undefined;
-  url_slug: Elements.UrlSlugElement | undefined;
-  body_copy: Elements.RichTextElement | undefined;
 }
 
-export class Article extends ContentItem {
+export class BlogListing extends ContentItem {
   public elements: Elements | undefined;
 }
