@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
 import { styled } from '@utils/theme';
 
@@ -7,7 +7,9 @@ interface MainProps {
   children: JSX.Element[] | JSX.Element;
 }
 
-const Container: React.FC<MainProps> = ({ className, children }) => <main className={className}>{children}</main>;
+const Container: FunctionComponent<MainProps> = ({ className, children }) => (
+  <main className={className}>{children}</main>
+);
 
 const Main = styled(Container)`
   flex: 1;

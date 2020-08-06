@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { Link } from 'gatsby';
 
 import { styled } from '@utils/theme';
@@ -9,7 +9,7 @@ interface HeaderProps {
   className?: string;
 }
 
-const Container: React.FC<HeaderProps> = ({ className }) => (
+const Container: FunctionComponent<HeaderProps> = ({ className }) => (
   <header className={className}>
     <Link to="/">
       <SrOnly text="Liam Goldfinch" />
