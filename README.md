@@ -8,4 +8,4 @@
 
 #### 🎉 This is the source code branch of the site
 
-💻 Published code can be found over at the [compiled site repo](https://github.com/liamgold/liamgold.github.io).
+💻 Published code can be found over at the [compiled site repository](https://github.com/liamgold/liamgold.github.io).
