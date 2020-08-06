@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 
 import { styled } from '@utils/theme';
 
@@ -7,7 +7,7 @@ interface SrOnlyProps {
   text: string;
 }
 
-const Container: React.FC<SrOnlyProps> = ({ className, text }) => <span className={className}>{text}</span>;
+const Container: FunctionComponent<SrOnlyProps> = ({ className, text }) => <span className={className}>{text}</span>;
 
 const SrOnly = styled(Container)`
   border: 0;

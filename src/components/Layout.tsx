@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { Helmet } from 'react-helmet';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
@@ -19,15 +19,19 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 interface LayoutProps {
+  title?: string;
+  description?: string;
+  keywords?: string;
   className?: string;
   children: JSX.Element[] | JSX.Element;
 }
 
-const Container: React.FC<LayoutProps> = ({ children, className }) => (
+const Container: FunctionComponent<LayoutProps> = ({ title, description, keywords, children, className }) => (
   <ThemeProvider theme={theme}>
     <div className={className}>
       <GlobalStyle />
       <Helmet
+        title={!title ? 'Liam Goldfinch | .NET Developer' : title}
         meta={[
           {
             name: 'theme-color',
@@ -37,10 +41,8 @@ const Container: React.FC<LayoutProps> = ({ children, className }) => (
             name: 'author',
             content: 'Liam Goldfinch',
           },
-          {
-            name: 'description',
-            content: '.NET Developer, based in Leeds, England.',
-          },
+          { name: 'description', content: !description ? '.NET Developer, based in Leeds, England.' : description },
+          { name: 'keywords', content: keywords },
         ]}
       >
         <html lang="en" />

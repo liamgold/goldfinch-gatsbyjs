@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithubSquare } from '@fortawesome/free-brands-svg-icons';
 
@@ -9,7 +9,7 @@ interface FooterProps {
   className?: string;
 }
 
-const Container: React.FC<FooterProps> = ({ className }) => (
+const Container: FunctionComponent<FooterProps> = ({ className }) => (
   <footer className={className}>
     <span style={{ fontWeight: 'bold' }}>Liam Goldfinch</span>
     <a href="https://github.com/liamgold/" target="_blank" rel="noopener noreferrer">
