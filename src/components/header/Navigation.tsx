@@ -21,16 +21,37 @@ const Container: FunctionComponent<NavigationProps> = ({ className }) => (
 );
 
 const Navigation = styled(Container)`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border-top: 1px solid ${props => props.theme.colour.grey};
+  padding: 0 20px;
+
   ul {
     display: flex;
     list-style-type: none;
     margin: 0;
 
     li {
-      margin: 0 15px 0 0;
+      padding: 0;
+      margin: 0;
 
-      &:last-of-type {
+      a {
+        position: relative;
+        padding: 20px;
+        line-height: 64px;
         margin: 0;
+        text-decoration: none;
+
+        &:hover::after {
+          content: ' ';
+          background: ${props => props.theme.colour.darkGrey};
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          height: 5px;
+          width: 100%;
+        }
       }
     }
   }
