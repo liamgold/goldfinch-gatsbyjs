@@ -14,8 +14,8 @@ const Container: FunctionComponent<MainProps> = ({ className, children }) => (
 const Main = styled(Container)`
   flex: 1;
   width: 100%;
-  max-width: 640px;
-  padding: 20px;
+  max-width: 1200px;
+  padding: 40px 20px;
 `;
 
 export default Main;

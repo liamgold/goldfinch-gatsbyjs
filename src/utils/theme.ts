@@ -2,8 +2,10 @@ import baseStyled, { ThemedStyledInterface } from 'styled-components';
 
 export const theme = {
   colour: {
-    white: '#f8f8ff',
-    grey: '#444444',
+    white: '#ffffff',
+    offWhite: '#f8f8ff',
+    grey: '#ebebeb',
+    darkGrey: '#444444',
   },
 };
 

@@ -2,19 +2,19 @@ import React, { FunctionComponent } from 'react';
 import { Helmet } from 'react-helmet';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
-import Footer from '@components/shared/Footer';
-import Header from '@components/shared/Header';
+import Footer from '@components/footer/Footer';
+import Header from '@components/header/Header';
 import Main from '@components/shared/Main';
 import { styled, theme } from '@utils/theme';
 
 const GlobalStyle = createGlobalStyle`
   body {
     background: ${theme.colour.white};
-    color: ${theme.colour.grey}
+    color: ${theme.colour.darkGrey}
   }
   a {
     font-weight: bold;
-    color: ${theme.colour.grey}
+    color: ${theme.colour.darkGrey}
   }
 `;
 

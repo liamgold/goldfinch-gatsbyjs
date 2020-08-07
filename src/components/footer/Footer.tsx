@@ -1,9 +1,7 @@
 import React, { FunctionComponent } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithubSquare } from '@fortawesome/free-brands-svg-icons';
 
 import { styled } from '@utils/theme';
-import SrOnly from './SrOnly';
+import SocialMedia from '@components/footer/SocialMedia';
 
 interface FooterProps {
   className?: string;
@@ -12,10 +10,7 @@ interface FooterProps {
 const Container: FunctionComponent<FooterProps> = ({ className }) => (
   <footer className={className}>
     <span style={{ fontWeight: 'bold' }}>Liam Goldfinch</span>
-    <a href="https://github.com/liamgold/" target="_blank" rel="noopener noreferrer">
-      <SrOnly text="GitHub" />
-      <FontAwesomeIcon icon={faGithubSquare} style={{ fontSize: '30px' }} />
-    </a>
+    <SocialMedia />
   </footer>
 );
 
@@ -24,9 +19,9 @@ const Footer = styled(Container)`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 640px;
+  max-width: 1200px;
   padding: 20px;
-  border-top: 5px solid ${props => props.theme.colour.grey};
+  background-color: ${props => props.theme.colour.grey};
 `;
 
 export default Footer;
