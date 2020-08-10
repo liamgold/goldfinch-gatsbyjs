@@ -1,11 +1,14 @@
 import React, { FunctionComponent } from 'react';
 import { Elements } from '@kentico/kontent-delivery';
 
+import { styled } from '@utils/theme';
+
 interface InlineImageProps {
+  className?: string;
   asset: Elements.AssetsElement | undefined;
 }
 
-const InlineImage: FunctionComponent<InlineImageProps> = ({ asset }) => {
+const Container: FunctionComponent<InlineImageProps> = ({ className, asset }) => {
   if (!asset) {
     return null;
   }
@@ -16,7 +19,18 @@ const InlineImage: FunctionComponent<InlineImageProps> = ({ asset }) => {
     return null;
   }
 
-  return <img src={image.url} alt={image.description}></img>;
+  return (
+    <figure className={className}>
+      <img src={image.url} alt={image.description}></img>
+      {image.description && <figcaption>{image.description}</figcaption>}
+    </figure>
+  );
 };
+
+const InlineImage = styled(Container)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 export default InlineImage;
