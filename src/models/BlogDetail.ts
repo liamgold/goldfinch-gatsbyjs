@@ -1,5 +1,7 @@
 import { ContentItem, Elements } from '@kentico/kontent-delivery';
 
+import { BodyCopy } from '@models/BodyCopy';
+
 interface Elements {
   base__title: Elements.TextElement | undefined;
   base__teaser_image: Elements.AssetsElement | undefined;
@@ -7,7 +9,7 @@ interface Elements {
   seo__meta_keywords: Elements.TextElement | undefined;
   seo__meta_description: Elements.TextElement | undefined;
   url_slug: Elements.UrlSlugElement | undefined;
-  body_copy: Elements.RichTextElement | undefined;
+  body_copy: BodyCopy | undefined;
 }
 
 export class BlogDetail extends ContentItem {

@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '@components/Layout';
+import RichText from '@components/shared/RichText';
 import { BlogDetail } from '@models/BlogDetail';
 
 interface BlogPostProps {
@@ -27,7 +28,7 @@ const BlogPost: FunctionComponent<BlogPostProps> = ({ data }) => {
     >
       <div>
         <h1>{item?.elements?.base__title?.value}</h1>
-        <div dangerouslySetInnerHTML={{ __html: item?.elements?.body_copy?.value || '' }} />
+        <RichText body={item?.elements?.body_copy} />
       </div>
     </Layout>
   );
@@ -47,6 +48,30 @@ export const query = graphql`
         }
         body_copy {
           value
+          modular_content {
+            ... on kontent_item_image {
+              elements {
+                image {
+                  name
+                  type
+                  value {
+                    description
+                    height
+                    size
+                    type
+                    name
+                    url
+                    width
+                  }
+                }
+              }
+              system {
+                id
+                codename
+                type
+              }
+            }
+          }
         }
       }
       system {
