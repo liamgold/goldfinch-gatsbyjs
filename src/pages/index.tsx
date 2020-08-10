@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 
 import Layout from '@components/Layout';
 import { Home } from '@models/Home';
+import RichText from '@components/shared/RichText';
 
 interface IndexProps {
   data: IndexResult;
@@ -27,7 +28,7 @@ const Index: FunctionComponent<IndexProps> = ({ data }) => {
     >
       <div>
         <h1>{item?.elements?.base__title?.value}</h1>
-        <div dangerouslySetInnerHTML={{ __html: item?.elements?.body_copy?.value || '' }} />
+        <RichText body={item?.elements?.body_copy} />
       </div>
     </Layout>
   );
