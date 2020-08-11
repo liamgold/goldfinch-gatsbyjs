@@ -43,6 +43,15 @@ export const query = graphql`
         base__title {
           value
         }
+        seo__meta_title {
+          value
+        }
+        seo__meta_keywords {
+          value
+        }
+        seo__meta_description {
+          value
+        }
         body_copy {
           value
         }
