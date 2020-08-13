@@ -21,11 +21,7 @@ const BlogPost: FunctionComponent<BlogPostProps> = ({ data }) => {
   }
 
   return (
-    <Layout
-      title={item?.elements?.seo__meta_title?.value}
-      description={item?.elements?.seo__meta_description?.value}
-      keywords={item?.elements?.seo__meta_keywords?.value}
-    >
+    <Layout title={item?.elements?.seo__meta_title?.value} description={item?.elements?.seo__meta_description?.value}>
       <div>
         <h1>{item?.elements?.base__title?.value}</h1>
         <RichText body={item?.elements?.body_copy} />
@@ -47,9 +43,6 @@ export const query = graphql`
           value
         }
         seo__meta_title {
-          value
-        }
-        seo__meta_keywords {
           value
         }
         seo__meta_description {

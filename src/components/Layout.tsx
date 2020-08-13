@@ -21,12 +21,11 @@ const GlobalStyle = createGlobalStyle`
 interface LayoutProps {
   title?: string;
   description?: string;
-  keywords?: string;
   className?: string;
   children: JSX.Element[] | JSX.Element;
 }
 
-const Container: FunctionComponent<LayoutProps> = ({ title, description, keywords, children, className }) => (
+const Container: FunctionComponent<LayoutProps> = ({ title, description, children, className }) => (
   <ThemeProvider theme={theme}>
     <div className={className}>
       <GlobalStyle />
@@ -42,7 +41,6 @@ const Container: FunctionComponent<LayoutProps> = ({ title, description, keyword
             content: 'Liam Goldfinch',
           },
           { name: 'description', content: !description ? '.NET Developer, based in Leeds, England.' : description },
-          { name: 'keywords', content: keywords },
         ]}
       >
         <html lang="en" />
