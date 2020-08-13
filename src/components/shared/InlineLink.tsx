@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { Link } from 'gatsby';
 
-import getUrl from '@utils/urlhelper';
+import getUrl from '@utils/urlHelper';
 
 interface InlineLinkProps {
   content: string;
