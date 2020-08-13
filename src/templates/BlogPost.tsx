@@ -74,6 +74,12 @@ export const query = graphql`
               }
             }
           }
+          links {
+            codename
+            link_id
+            type
+            url_slug
+          }
         }
       }
       system {

@@ -10,3 +10,4 @@ node_modules
 
 # Config files
 .env.*
+yarn-error.log
