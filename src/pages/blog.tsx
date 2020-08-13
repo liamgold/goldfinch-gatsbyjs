@@ -1,9 +1,11 @@
 import React, { FunctionComponent } from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 
+import { styled } from '@utils/theme';
 import Layout from '@components/Layout';
 import { BlogListing } from '@models/BlogListing';
 import { BlogDetail } from '@models/BlogDetail';
+import BlogCard from '@components/blog/BlogCard';
 
 interface BlogListProps {
   data: BlogListResult;
@@ -22,6 +24,12 @@ interface BlogNode {
   node: BlogDetail;
 }
 
+const BlogList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`;
+
 const Index: FunctionComponent<BlogListProps> = ({ data }) => {
   const item = data.kontentItemBlogListing;
   const blogDetails = data.allKontentItemBlogDetail;
@@ -35,17 +43,12 @@ const Index: FunctionComponent<BlogListProps> = ({ data }) => {
       <div>
         <h1>{item?.elements?.base__title?.value}</h1>
 
-        <div>
+        <BlogList>
           {blogDetails.edges.map(edge => {
             const blog = edge?.node;
-
-            return (
-              <div key={blog.system.id}>
-                <Link to={`/blog/${blog?.elements?.url_slug?.value}`}>{blog?.elements?.base__title?.value}</Link>
-              </div>
-            );
+            return <BlogCard key={blog.system.id} blog={blog} />;
           })}
-        </div>
+        </BlogList>
       </div>
     </Layout>
   );
@@ -76,6 +79,9 @@ export const query = graphql`
               value
             }
             post_date {
+              value
+            }
+            summary {
               value
             }
             url_slug {
