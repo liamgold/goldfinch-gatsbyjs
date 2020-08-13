@@ -4,7 +4,6 @@ interface Elements {
   base__title: Elements.TextElement | undefined;
   base__teaser_image: Elements.AssetsElement | undefined;
   seo__meta_title: Elements.TextElement | undefined;
-  seo__meta_keywords: Elements.TextElement | undefined;
   seo__meta_description: Elements.TextElement | undefined;
 }
 
