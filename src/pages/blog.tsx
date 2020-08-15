@@ -78,6 +78,11 @@ export const query = graphql`
             base__title {
               value
             }
+            base__teaser_image {
+              value {
+                url
+              }
+            }
             post_date {
               value
             }

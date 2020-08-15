@@ -20,8 +20,19 @@ const BlogPost: FunctionComponent<BlogPostProps> = ({ data }) => {
     return null;
   }
 
+  let teaserImage = '';
+
+  if (item?.elements?.base__teaser_image?.value[0]) {
+    teaserImage = item?.elements?.base__teaser_image?.value[0].url;
+  }
+
   return (
-    <Layout title={item?.elements?.seo__meta_title?.value} description={item?.elements?.seo__meta_description?.value}>
+    <Layout
+      title={item?.elements?.seo__meta_title?.value}
+      description={item?.elements?.seo__meta_description?.value}
+      article={true}
+      image={teaserImage}
+    >
       <div>
         <h1>{item?.elements?.base__title?.value}</h1>
         <RichText body={item?.elements?.body_copy} />
@@ -41,6 +52,11 @@ export const query = graphql`
         }
         base__title {
           value
+        }
+        base__teaser_image {
+          value {
+            url
+          }
         }
         seo__meta_title {
           value

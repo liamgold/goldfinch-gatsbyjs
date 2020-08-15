@@ -24,7 +24,7 @@ exports.createPages = ({ graphql, actions }) => {
 
       edges.forEach(edge => {
         createPage({
-          path: `/blog/${edge.node.elements.url_slug.value}`,
+          path: `/blog/${edge.node.elements.url_slug.value}/`,
           component: path.resolve(`./src/templates/BlogPost.tsx`),
           context: {
             // Data passed to context is available in page queries as GraphQL variables.
