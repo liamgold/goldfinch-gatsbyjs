@@ -9,7 +9,7 @@ module.exports = {
     title: '.NET Developer',
     titleTemplate: '%s · Liam Goldfinch',
     description: '.NET Developer, based in Leeds, England.',
-    url: `https://www.goldfinch.me`,
+    siteUrl: `https://www.goldfinch.me`,
     image: '/images/liam.jpg',
     twitterUsername: '@LiamGoldfinch',
   },
