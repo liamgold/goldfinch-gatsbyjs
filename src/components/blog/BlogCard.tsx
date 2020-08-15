@@ -2,8 +2,8 @@ import React, { FunctionComponent } from 'react';
 import { Link } from 'gatsby';
 
 import { styled } from '@utils/theme';
-import { BlogDetail } from '@models/BlogDetail';
 import { device } from '@utils/devices';
+import { BlogDetail } from '@models/BlogDetail';
 
 interface BlogCardProps {
   className?: string;
@@ -24,7 +24,7 @@ const Container: FunctionComponent<BlogCardProps> = ({ className, blog }) => {
 
   return (
     <div className={className}>
-      <Link to={`/blog/${blog?.elements?.url_slug?.value}`}>{blog?.elements?.base__title?.value}</Link>
+      <Link to={`/blog/${blog?.elements?.url_slug?.value}/`}>{blog?.elements?.base__title?.value}</Link>
       <DateBlock>{`${formattedDate}`}</DateBlock>
       <p>{blog?.elements?.summary?.value}</p>
     </div>

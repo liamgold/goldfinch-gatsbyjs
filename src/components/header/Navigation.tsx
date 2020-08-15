@@ -14,7 +14,7 @@ const Container: FunctionComponent<NavigationProps> = ({ className }) => (
         <Link to="/">Home</Link>
       </li>
       <li>
-        <Link to="/blog">Blog</Link>
+        <Link to="/blog/">Blog</Link>
       </li>
     </ul>
   </nav>
