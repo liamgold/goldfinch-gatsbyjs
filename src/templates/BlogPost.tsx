@@ -67,6 +67,23 @@ export const query = graphql`
         body_copy {
           value
           modular_content {
+            ... on kontent_item_code_block {
+              elements {
+                language {
+                  value {
+                    codename
+                  }
+                }
+                code {
+                  value
+                }
+              }
+              system {
+                id
+                codename
+                type
+              }
+            }
             ... on kontent_item_image {
               elements {
                 image {

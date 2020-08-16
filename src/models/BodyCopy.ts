@@ -2,6 +2,8 @@ import { Elements, ContentItemSystemAttributes, ElementType } from '@kentico/kon
 
 export interface ModularContentElements {
   image: Elements.AssetsElement | undefined;
+  code: Elements.TextElement | undefined;
+  language: Elements.MultipleChoiceElement | undefined;
 }
 
 export interface ModularContent {
