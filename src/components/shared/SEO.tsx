@@ -8,9 +8,10 @@ interface SEOProps {
   description?: string;
   image?: string;
   article?: boolean;
+  canonical?: string;
 }
 
-const SEO: FunctionComponent<SEOProps> = ({ title, description, image, article }) => {
+const SEO: FunctionComponent<SEOProps> = ({ title, description, image, article, canonical }) => {
   const { pathname } = useLocation();
   const { site } = useStaticQuery(query);
   const { defaultTitle, titleTemplate, defaultDescription, siteUrl, defaultImage, twitterUsername } = site.siteMetadata;
@@ -39,6 +40,7 @@ const SEO: FunctionComponent<SEOProps> = ({ title, description, image, article }
       {seo.title && <meta name="twitter:title" content={seo.title} />}
       {seo.description && <meta name="twitter:description" content={seo.description} />}
       {seo.image && <meta name="twitter:image" content={seo.image} />}
+      {canonical && <link rel="canonical" href={`${siteUrl}${canonical}`} />}
     </Helmet>
   );
 };

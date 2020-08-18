@@ -23,15 +23,24 @@ interface LayoutProps {
   description?: string;
   image?: string;
   article?: boolean;
+  canonical?: string;
   className?: string;
   children: JSX.Element[] | JSX.Element;
 }
 
-const Container: FunctionComponent<LayoutProps> = ({ title, description, image, article, children, className }) => (
+const Container: FunctionComponent<LayoutProps> = ({
+  title,
+  description,
+  image,
+  article,
+  canonical,
+  children,
+  className,
+}) => (
   <ThemeProvider theme={theme}>
     <div className={className}>
       <GlobalStyle />
-      <SEO title={title} description={description} image={image} article={article} />
+      <SEO title={title} description={description} image={image} article={article} canonical={canonical} />
       <Header />
       <Main>{children}</Main>
       <Footer />
