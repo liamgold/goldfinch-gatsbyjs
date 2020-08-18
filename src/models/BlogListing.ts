@@ -5,6 +5,7 @@ interface Elements {
   base__teaser_image: Elements.AssetsElement | undefined;
   seo__meta_title: Elements.TextElement | undefined;
   seo__meta_description: Elements.TextElement | undefined;
+  seo__canonical_url: Elements.TextElement | undefined;
 }
 
 export class BlogListing extends ContentItem {

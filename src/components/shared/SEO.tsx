@@ -40,7 +40,7 @@ const SEO: FunctionComponent<SEOProps> = ({ title, description, image, article, 
       {seo.title && <meta name="twitter:title" content={seo.title} />}
       {seo.description && <meta name="twitter:description" content={seo.description} />}
       {seo.image && <meta name="twitter:image" content={seo.image} />}
-      {canonical && <link rel="canonical" href={`${siteUrl}${canonical}`} />}
+      {canonical && <link rel="canonical" href={canonical} />}
     </Helmet>
   );
 };
