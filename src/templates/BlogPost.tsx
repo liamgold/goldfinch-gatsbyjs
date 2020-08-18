@@ -32,6 +32,7 @@ const BlogPost: FunctionComponent<BlogPostProps> = ({ data }) => {
       description={item?.elements?.seo__meta_description?.value}
       article={true}
       image={teaserImage}
+      canonical={item?.elements?.seo__canonical_url?.value}
     >
       <div>
         <h1>{item?.elements?.base__title?.value}</h1>
@@ -62,6 +63,9 @@ export const query = graphql`
           value
         }
         seo__meta_description {
+          value
+        }
+        seo__canonical_url {
           value
         }
         body_copy {
