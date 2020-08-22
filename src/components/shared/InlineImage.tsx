@@ -31,6 +31,11 @@ const InlineImage = styled(Container)`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  figcaption {
+    font-style: italic;
+    font-size: 16px;
+  }
 `;
 
 export default InlineImage;
