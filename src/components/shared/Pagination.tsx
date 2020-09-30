@@ -19,14 +19,14 @@ const Container: FunctionComponent<PaginationProps> = ({ className, baseUrl, cur
 
   const isFirst = currentPage === 1;
   const isLast = currentPage === numPages;
-  const prevPage = currentPage - 1 === 1 ? `${siteUrl}${baseUrl}` : `${siteUrl}${baseUrl}${currentPage - 1}/`;
-  const nextPage = `${siteUrl}${baseUrl}${currentPage + 1}/`;
+  const prevPage = currentPage - 1 === 1 ? `${baseUrl}` : `${baseUrl}${currentPage - 1}/`;
+  const nextPage = `${baseUrl}${currentPage + 1}/`;
 
   return (
     <Fragment>
       <Helmet>
-        {!isFirst && <link rel="prev" href={prevPage} />}
-        {!isLast && <link rel="next" href={nextPage} />}
+        {!isFirst && <link rel="prev" href={`${siteUrl}${prevPage}`} />}
+        {!isLast && <link rel="next" href={`${siteUrl}${nextPage}`} />}
       </Helmet>
       <div className={className}>
         <ul>
