@@ -1,11 +1,3 @@
-# Liam Goldfinch - [goldfinch.me](https://www.goldfinch.me)
+# This GatsbyJS repo is no longer used. 
 
-<p>
-  <a href="https://github.com/liamgold/liamgold.github.io-source/">
-    <img alt="GitHub Actions status" src="https://github.com/liamgold/liamgold.github.io-source/workflows/CI%20-%20Release/badge.svg">
-  </a>
-</p>
-
-#### 🎉 This is the source code branch of the site
-
-💻 Published code can be found over at the [compiled site repository](https://github.com/liamgold/liamgold.github.io).
+I have dropped **GatsbyJS** in favour of **Statiq**.  New repo can be found [here](https://github.com/liamgold/goldfinch.me).
